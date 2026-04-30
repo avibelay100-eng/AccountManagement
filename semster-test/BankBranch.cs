@@ -14,7 +14,7 @@ namespace ConsoleApp1
         public void SetAddress(string address) { this.address = address; }
 
         public CheckingAccount[] GetAccounts() { return accounts; }
-        public void SetAccounts(CheckingAccount[] accounts) { this.accounts = accounts; }
+        private void SetAccounts(CheckingAccount[] accounts) { this.accounts = accounts; }
 
         public BankBranch(int branchNumber, string address)
         {
@@ -30,10 +30,12 @@ namespace ConsoleApp1
                 {
                     accounts[i] = account;
                     Console.WriteLine("Account added successfully.");
+                    return;
                 }
                 else if (accounts[i] == account)
                 {
                     Console.WriteLine("Existing account! can't adding...");
+                    return;
                 }
             }
         }
